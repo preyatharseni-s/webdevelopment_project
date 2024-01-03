@@ -1,44 +1,83 @@
-.container {
-    max-width: 400px;
-    margin: 10vh auto 0 auto;
-    box-shadow: 0px 0px 43px 17px rgba(153,153,153,1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  height: 100vh;
+  background-color: #300532;
+}
+#slideContainer {
+  width: 720px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.sliderBtn {
+  position: absolute;
+  background-color: rgba(48, 5, 50, 0.5);
+  border: none;
+  color: white;
+  padding: 1rem;
+  top: calc(50% - 1rem - 27px);
+  z-index: 999;
+  font-family: Nunito;
+  font-weight: 600;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+}
+.sliderBtn:hover {
+  background-color: rgba(48, 5, 50, 1);
+}
+#prev {
+  left: 0;
+}
+#next {
+  right: 0;
+}
+.slide {
+  display: none;
+}
+.show {
+  display: block;
+  animation: fadein 1s ease-in-out 0s 1 normal forwards;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#display {
-    text-align: right;
-    height: 70px;
-    line-height: 70px;
-    padding: 16px 8px;
-    font-size: 25px;
+.slide p {
+  padding: 1rem 0;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-family: Nunito;
+  font-weight: 600;
 }
-
-.buttons {
-    display: grid;
-    border-bottom: 1px solid #999;
-    border-left: 1px solid#999;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+img {
+  max-width: 100%;
+  border-radius: 0.4rem 0.4rem 0 0;
+  display: block;
+  margin: auto;
 }
-
-.buttons > div {
-    border-top: 1px solid #999;
-    border-right: 1px solid#999;
-}
-
-.button {
-    border: 0.5px solid #999;
-    line-height: 100px;
-    text-align: center;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-#equal {
-    background-color: rgb(85, 85, 255);
-    color: white;
-}
-
-.button:hover {
-    background-color: #323330;
-    color: white;
-    transition: 0.5s ease-in-out;
+@media screen and (max-width: 722px) {
+  #slideContainer {
+    width: 100%;
+  }
+  .sliderBtn {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .slide p {
+    padding: 0.5rem 0;
+  }
 }
